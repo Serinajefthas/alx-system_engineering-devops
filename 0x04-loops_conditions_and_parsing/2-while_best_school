@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# This script displays text 10 times w/ while loop
+
+counter=1
+
+while [ $counter -le 10 ]
+do
+	echo 'Best School'
+	((counter++))
+done
