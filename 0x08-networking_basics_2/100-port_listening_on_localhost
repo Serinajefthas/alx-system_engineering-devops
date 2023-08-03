@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Script that listens for incoming connections
+# on port 98 on localhost
+
+nc -l 98
