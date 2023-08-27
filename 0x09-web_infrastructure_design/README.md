@@ -1,0 +1,1 @@
+Project to create a web infrastructure design of a single and multiple servers, utilising web, application and database servers within them. We have to explain the protocols and DNS process to access a website from a computer and receive its corresponding HTML data. Include other aspects; firewall, load balancer etc.
