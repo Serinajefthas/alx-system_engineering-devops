@@ -1,7 +1,7 @@
-exec { 'kill_killmenow_process':
+#kills process 'killmenow' using pkill cmd
+exec { 'pkill':
   command     => 'pkill -9 killmenow',
-  refreshonly => true,
+  provider    => 'shell',
   onlyif      => 'pgrep killmenow',
   path        => ['/bin', '/usr/bin'], #path puppet agent find pkill, pgrep
 }
-
