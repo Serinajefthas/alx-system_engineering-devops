@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# ssh config file to allow to connect to server without password
+# client config file'
+Host 54.84.96.4
+  IdentityFile ~/.ssh/school
+  PasswordAuthentication no
