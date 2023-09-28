@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 # Script to query nginx web server w/ get request using curl-returns web page
+# configure to listen to port 80, prints 'Hello World'
 # Completed in own virtual server
 
 sudo apt-get -y update
 sudo apt-get install -y nginx
-echo "Hello World!" > /var/www/html/index.nginx-debian.html
 sudo service nginx start
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
