@@ -1,2 +1,9 @@
 #!/usr/bin/env bash
-# Script 
+# Script that configures nginx server to redirect user
+
+sudo apt-get -y update
+sudo apt-get install -y nginx
+echo "Hello World!" > /var/www/html/index.html
+sed -i '/server_name _;/ a\\trewrite ^/redirect_me https://www.youtube.com/watch?v=dQw4w9WgXcQ permanent;' /etc/nginx/sites-available/default
+sudo service nginx start
+
