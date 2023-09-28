@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # script to restart apache2 in docker container and return page containing text when querying root of it
 
-sudo service apache2 restart
+sudo service apache2 start
