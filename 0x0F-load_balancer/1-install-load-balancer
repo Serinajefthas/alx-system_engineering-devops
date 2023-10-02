@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Script installs haproxy on server using roundrobin algorithm
+
+sudo apt-get update
+sudo apt-get -y install nginx
+sudo apt-get install haproxy
+
+server {
+	listen 
