@@ -2,19 +2,20 @@
 # Script configures haproxy on server using roundrobin algorithm
 
 sudo apt-get install -y --no-install-recommends software-properties-common
-sudo add-apt-repository -y ppa:vbernat/haproxy-2.5
+sudo add-apt-repository -y ppa:vbernat/haproxy-2.4
 sudo apt-get update -y
 sudo apt-get install -y haproxy
 
-echo \
-	"
+load_balncer="\
 frontend haproxy
 	bind *:80
-	default_backend servers
-
-backend servers
+	mode http
+	default_backend webservers
+backend webservers
+	mode http
 	balance roundrobin
-	server 277341-web-01 100.25.132.50
-	server 277341-web-02 34.234.204.29
-" >> /etc/haproxy/haproxy.cfg
+	server 27734-web-01 100.25.132.50 check
+	server 277341-web-02 34.234.204.29 check
+"
+echo '$load_balancer' >> /etc/haproxy/haproxy.cfg
 service haproxy restart
