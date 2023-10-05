@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# same task as task 0 (nginx listening to port 80) but now in 5 lines and service (init) must say nginx is not runinng
+sed -i "s/8080/80/" /etc/nginx/sites-enabled/default
+kill -9 "$(cat /var/run/nginx.pid)"
+sudo service nginx restart
