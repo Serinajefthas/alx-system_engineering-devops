@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 # Determine why nginx on local ubuntu container not listening to port 80
 # now write bash script with min. number commands to *automate* fix - so basically want user run it and that fixes it without any user input or checking, ie no 'sudo netstat -tuln | grep :80' to see if nginx is listening port 80 cuz then need user to check output
-
-mv /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-cp /etc/nginx/sites-enabled/default /etc/nginx/sites-available/default
-pkill nginx
+#creates symbolic link
+ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 sudo service nginx restart
