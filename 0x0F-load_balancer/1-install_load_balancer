@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Script configures haproxy on server using roundrobin algorithm
+# script configures haproxy on server using roundrobin algorithm
 
 sudo apt-get -y update
 sudo apt-get -y install haproxy
