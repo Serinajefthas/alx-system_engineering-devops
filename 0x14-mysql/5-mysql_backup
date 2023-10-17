@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Generates mysql dump and creates compressed archive from it
+
+date = $(date +"%d-%m-%Y")
+
+mysqldump -u root --password="$1" --all-databases > "backup.sql"
+
+if [ $? -eq 0 ]; then
+	tar -czvf "$date.tar.gz" "backup.sql"
+else
+	echo 'Error creating mysqldump'
+fi
