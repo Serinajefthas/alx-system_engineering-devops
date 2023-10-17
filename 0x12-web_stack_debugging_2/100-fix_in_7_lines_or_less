@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#script same task 0 7 lines or less
+sudo -u "$1" whoami
