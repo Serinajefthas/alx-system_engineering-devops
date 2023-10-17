@@ -1,0 +1,10 @@
+# to test replication has worked, insert new record into db in master then check appears in slave db
+USE tyrell_corp;
+INSERT INTO nexus6 (id, name) VALUES (2, 'Serina');
+SELECT * FROM nexus6;
+
+#secondary/slave db
+USE tyrell_corp;
+SELECT * FROM nexus6;
+
+#2 tables must be same
