@@ -1,8 +1,4 @@
-#!/usr/bin/env bash
 #Script to fix apache returning 500 internal server error
-#sudo sed -i 's/sites-enabled/sites-available/g' "/etc/nginx/nginx.conf";
-#sudo service nginx restart
-
 file { '/etc/nginx/nginx.conf':
   ensure  => file,
   require => Package['nginx'], # Ensure Nginx package is installed before managing the file
