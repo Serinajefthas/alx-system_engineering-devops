@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-#Script that utilises reddit API to return number of subscribers for given subreddit
 import requests
+
 
 def number_of_subscribers(subreddit):
     """Returns number of subscribers for given subreddit else 0"""
@@ -14,4 +14,3 @@ def number_of_subscribers(subreddit):
     if response.status_code == 200:
         return response.json()['data']['subscribers']
     return 0
-
