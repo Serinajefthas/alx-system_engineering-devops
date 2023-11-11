@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+""" Script that returns number of subs reddit API"""
 import requests
 
 
