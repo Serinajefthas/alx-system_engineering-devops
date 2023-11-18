@@ -1,0 +1,13 @@
+#custom nginx config file to serve web pages by proxy request
+
+server {
+    listen 80;
+    server_name 127.0.0.1;
+
+    location / {
+        proxy_pass http://127.0.0.1:5000;
+    }
+    location / {
+        proxy_pass http://34.207.121.47:5000;
+    }
+}
