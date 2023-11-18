@@ -1,9 +1,10 @@
-#Script updates open file limit of nginx server to allow more requests to be managedi
+#Script updates open file limit of nginx server to allow more requests to be managed
 
 exec { 'update-ulimit':
+    command => 'sed -i "s/15/4096/" /etc/default/nginx',
     path    => '/usr/local/bin/:/bin/'
-    command => "ulimit -n 4096",
 }
 exec { 'restart_nginx':
-    command => 'service nginx restart',
+    command => 'nginx restart',
+    path    => '/etc/init.d/'
 }
