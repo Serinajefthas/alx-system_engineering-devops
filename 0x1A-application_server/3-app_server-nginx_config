@@ -21,8 +21,13 @@
 server {
         listen 80 default_server;
         listen [::]:80 default_server;
+	# Use server IP as domain name
+	#server_name 104.196.168.90;
 
-        # SSL configuration
+	# Customize HTTP response header
+	add_header  X-Served-By 277341-web-01;
+        
+	# SSL configuration
         #
         # listen 443 ssl default_server;
         # listen [::]:443 ssl default_server;
@@ -55,16 +60,21 @@ server {
         }
 
         #config to proxy requests to gunicorn app server on port 5000
-        location /airbnb-onepage/ {
-
-                proxy_pass http://127.0.0.1:5000;
-
+        location = /airbnb-onepage/ {
+                proxy_pass http://127.0.0.1:5000/airbnb-onepage/;
         }
 
 	#config to proxy req to gunicorn w query params
-        location /airbnb-dynamic/number_odd_or_even/<int:n>/ {
-                proxy_pass http://127.0.0.1:5001;
+	location ~ /airbnb-dynamic/number_odd_or_even/(\d+)$ {
+                proxy_pass http://127.0.0.1:5001/number_odd_or_even/$1;
         }
+
+	# 404 error page
+	#error_page 404 /404.html;
+	location /404 {
+        	root /var/www/html;
+        	internal;
+	}
 
         # pass PHP scripts to FastCGI server
         #
